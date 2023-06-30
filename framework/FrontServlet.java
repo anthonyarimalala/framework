@@ -32,18 +32,29 @@ public class FrontServlet extends HttpServlet{
         response.setContentType("text/html;charset=UTF-8");
 // sprint5
         ModelView modelView = Fonctions.recup_ModelView(mappingUrls, request, response);
+// sprint6
+        Fonctions.recuperationData(modelView, request, response);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/"+modelView.getUrl());
         requestDispatcher.forward(request, response);
         
-    }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        processRequest(request, response);
+
+
+
         PrintWriter out = response.getWriter();
         String packageName = getServletContext().getInitParameter("packageName");
         URL root = Thread.currentThread().getContextClassLoader().getResource(packageName.replace(".", "//")); 
         out.println("Front Servlet");   
         out.println("Root: " + root);
+        for(String key : mappingUrls.keySet()){
+            Mapping mapping = mappingUrls.get(key);
+            out.println("Cle: " + key + ", ClassName: "+ mapping.getClassName() + ", Mapping: " + mapping.getMethod());
+            out.println("<br>"); 
+        }
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        processRequest(request, response);
 
     }
 

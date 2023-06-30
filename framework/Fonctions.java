@@ -16,7 +16,17 @@ import jakarta.servlet.annotation.*;
 
 public class Fonctions{
 
-    // SPRINT 5
+// SPRINT 6: maka donnée anle modelView ho dispatchena
+    public static void recuperationData(ModelView modelView, HttpServletRequest request, HttpServletResponse response){
+        HashMap<String, Object> data = modelView.getData();
+        for (Map.Entry<String, Object> entry : data.entrySet()) {
+            String key = entry.getKey();
+            Object valeurObjet = entry.getValue();
+            request.setAttribute(key, (Object)valeurObjet);
+        }
+    }
+
+// SPRINT 5: maka modelView anaovana dispatcher
     // recuperation valeur de retour et dispatcher
     public static ModelView recup_ModelView(HashMap<String, Mapping> mappingUrls,HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -57,7 +67,7 @@ public class Fonctions{
         return retour;
     }
 
-    // SPRINT 3
+// SPRINT 3
     public static HashMap<String,Mapping> mameno_HashMap(HashMap<String,Mapping> mappingUrls, String packageName) throws Exception{
         try {
         mappingUrls = new HashMap<String, Mapping>();

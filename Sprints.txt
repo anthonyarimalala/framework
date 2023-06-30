@@ -22,4 +22,6 @@ sprint5:
     Boucle MappingUrls si == URL sur navigateur dia maka valeur Mapping izay misy nameClass sy nameMethod
     dispatch makany am page hafa avy am ModelView
 
-
+sprint-6:
+    ajout HashMap data dans ModelView
+    recuperation de data dans frontServlet avant de dispatcher
