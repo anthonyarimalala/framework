@@ -15,3 +15,11 @@ sprint3:
 sprint4:
     division en Framework et test-framework
     build.bat
+
+sprint5:
+    ModelView
+    Changement method avec retour ModelView
+    Boucle MappingUrls si == URL sur navigateur dia maka valeur Mapping izay misy nameClass sy nameMethod
+    dispatch makany am page hafa avy am ModelView
+
+
