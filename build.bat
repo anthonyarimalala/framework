@@ -12,3 +12,4 @@ cd test-framework/
     jar -cf test-servlet.war *
     move test-servlet.war "C:\Program Files\Apache Software Foundation\Tomcat 10.0\webapps\test-framework.war"
 cd ..
+

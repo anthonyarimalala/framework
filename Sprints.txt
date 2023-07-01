@@ -25,3 +25,6 @@ sprint5:
 sprint-6:
     ajout HashMap data dans ModelView
     recuperation de data dans frontServlet avant de dispatcher
+
+sprint-7:
+    recuperation formulaire de atao amle classe si attribut==parametre
