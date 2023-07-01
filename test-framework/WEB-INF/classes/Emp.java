@@ -45,4 +45,10 @@ public class Emp{
     public void setPrenom(String prenom) {
         this.prenom = prenom;
     }
+    public String getNom() {
+        return nom;
+    }
+    public String getPrenom() {
+        return prenom;
+    }
 }

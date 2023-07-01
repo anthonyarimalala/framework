@@ -43,6 +43,7 @@ public class FrontServlet extends HttpServlet{
         
         try {
             Object myObject = Fonctions.getMyObject(mappingUrls, request, response);
+            // sprint 7: maka données formulaire
             myObject = Fonctions.recuperationInputData(myObject, request, response);
             afficherDetailClass(myObject, out); 
 
@@ -62,8 +63,8 @@ public class FrontServlet extends HttpServlet{
             out.println("Cle: " + key + ", ClassName: "+ mapping.getClassName() + ", Mapping: " + mapping.getMethod());
         }
 
-        // RequestDispatcher requestDispatcher = request.getRequestDispatcher("/"+modelView.getUrl());
-        // requestDispatcher.forward(request, response);
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/"+modelView.getUrl());
+        requestDispatcher.forward(request, response);
         
     }
 

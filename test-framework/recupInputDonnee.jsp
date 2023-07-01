@@ -1,3 +1,10 @@
+<%@ page import="models.Emp" %>
+<%
+    Emp emp = (models.Emp) request.getAttribute("models.Emp");
+    String nom = (String) request.getAttribute("nom");
+    String prenom = (String) request.getAttribute("prenom");
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +14,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Sprint 6: Input - Recuperation de donnees</h2>
+    <h2>Sprint 7: Input - Recuperation de donnees</h2>
+    <p><%= nom %> <%= prenom %></p>
+    <p>Classe: <%= emp.getNom() %></p>
 </body>
 </html>

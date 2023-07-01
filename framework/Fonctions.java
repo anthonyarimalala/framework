@@ -18,19 +18,14 @@ public class Fonctions{
 
 // SPRINT 7: Recuperation données formulaire
     public static Object recuperationInputData(Object object, HttpServletRequest request, HttpServletResponse response) throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException,InvocationTargetException, IOException{
+        PrintWriter out = response.getWriter();
         Field[] fields = object.getClass().getDeclaredFields();
         Enumeration<String> paramNames = request.getParameterNames();
-        PrintWriter out = response.getWriter();
-        out.println("<br>");
         while (paramNames.hasMoreElements()) {
             String paramName = paramNames.nextElement();
             for (int i = 0; i < fields.length; i++) {
                 Field field = fields[i];
-                out.println(field.getName() + "--" + paramName);
-                out.println("<br>");
                 if (field.getName().equals(paramName)) {
-                    out.println("Eto leizy mandeha: " + field.getName() + "--" + paramName);
-                    out.println("<br>");
                     String methodName = "set" + capitalizeFirstLetter(field.getName());
                     Method method = object.getClass().getMethod(methodName, field.getType());
                     Object paramValue = request.getParameter(paramName);
@@ -39,6 +34,20 @@ public class Fonctions{
             }
         }
 
+        Field[] newFields = object.getClass().getDeclaredFields();
+        for (Field field : newFields) {
+            field.setAccessible(true);
+            String cle = field.getName();
+            Object valeur = field.get(object);
+            if (request.getAttribute(cle) == null) {
+                request.setAttribute(cle, valeur);
+            }
+        }
+        // out.println("Tokny eto leizy");
+        // out.println("tyy "+(String)object.getClass().getName()+" tyy");
+        // out.println("Tokny eto leizy");
+        request.setAttribute((String)object.getClass().getName(), object);
+       
         return object;
     }
 
@@ -48,7 +57,9 @@ public class Fonctions{
         for (Map.Entry<String, Object> entry : data.entrySet()) {
             String key = entry.getKey();
             Object valeurObjet = entry.getValue();
-            request.setAttribute(key, (Object)valeurObjet);
+            if (request.getAttribute(key) == null) {
+                request.setAttribute(key, (Object)valeurObjet);
+            }
         }
     }
 
