@@ -1,11 +1,11 @@
 cd framework/
-    javac -d . *.java
+    javac -g:lines,vars,source -d . *.java
     jar -cf fw.jar .
     move fw.jar "D:\ITU\S4\MrNaina\framework\test-framework\WEB-INF\lib"
 cd ..
 
 cd test-framework/WEB-INF/classes
-    javac -cp ../lib/fw.jar -d . *.java
+    javac -g:lines,vars,source -cp ../lib/fw.jar -d . *.java
 cd ../../..
 
 cd test-framework/

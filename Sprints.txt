@@ -28,3 +28,6 @@ sprint-6:
 
 sprint-7:
     recuperation formulaire de atao amle classe si attribut==parametre
+
+fais une fonction en java setMethodsParameters(Method method, HttpServletRequest request, HttpServletResponse response).
+j'ai <form> en jsp et si name==method.parametre alors on ajoute ce parametre a la method et à la fin on fait invoke
