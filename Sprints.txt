@@ -31,3 +31,17 @@ sprint-7:
 
 sprint-8:
     fonction avec parametre
+
+
+out.println("------------TRAITEMENT FILE------------");
+                        try {
+                            out.println("------------TRAITEMENT FILE------------");
+                            // String methodName = "set" + capitalizeFirstLetter(field.getName());
+                            // Method method = object.getClass().getMethod(methodName, FileUpload.class);
+                            // FileUpload paramValue = traitementFile(paramName, request);
+                            // method.invoke(object, paramValue);
+                            
+                        } catch (Exception e) {
+                            // TODO: handle exception
+                            e.printStackTrace(out);
+                        }
