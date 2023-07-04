@@ -3,7 +3,9 @@ package models;
 import etu2033.annotation.url;
 import etu2033.framework.servlet.ModelView;
 import etu2033.framework.FileUpload;
+import etu2033.annotation.Scope;
 
+@Scope(isSingleton = true)
 public class Emp{
     String nom;
     String prenom;
